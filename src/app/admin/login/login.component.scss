@@ -1,0 +1,28 @@
+@import "../../../variables";
+
+$google_bg: #d34836;
+$yahoo_bg: #7b0099;
+$launchpad_bg: #f8c300;
+$oauth_fg: #ffffff;
+
+:host::before {
+    content: '';
+    margin-top: 5rem;
+    display: block;
+}
+
+.btn-oauth {
+    color: $oauth_fg
+}
+
+.btn-google {
+    background-color: $google_bg;
+}
+
+.btn-yahoo {
+    background-color: $yahoo_bg;
+}
+
+.btn-launchpad {
+    background-color: $launchpad_bg;
+}
