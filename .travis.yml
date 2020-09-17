@@ -8,6 +8,6 @@ script:
   - ./node_modules/@angular/cli/bin/ng build --prod
   - tar cf - dist/ | gzip --best > cchits-ng.frontend.prod.tar.gz
   - rm -rf dist
-  - ./node_modules/@angular/cli/bin/ng build --staging
+  - ./node_modules/@angular/cli/bin/ng build
   - tar cf - dist/ | gzip --best > cchits-ng.frontend.staging.tar.gz
   - rm -rf dist
