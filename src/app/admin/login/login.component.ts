@@ -3,6 +3,10 @@ import { Component, OnInit } from '@angular/core';
 import { environment } from 'src/environments/environment';
 import { BackendService } from '../../backend.service';
 
+class GetEndPointData {
+  public url : string;
+}
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -17,6 +21,10 @@ export class LoginComponent implements OnInit {
 
   public loginWith(provider: string) {
     console.log("Login with ", provider);
-    this.backend.call('/oauth', 'getEndpoint', {'provider': provider}).then(data => console.log(data));
+    this.backend.call(
+      '/oauth', 'getEndpoint', {'provider': provider}
+    ).then(
+      (data: GetEndPointData) => window.location.href = data.url
+    );
   }
 }
