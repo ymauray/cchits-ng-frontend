@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  backend: 'http://cc.loc'
+  backend: 'http://cc.loc/api'
 };
 
 /*

@@ -11,11 +11,11 @@ before_install:
 install:
   - npm install
 script:
-  - ./node_modules/@angular/cli/bin/ng build --prod
-  - tar cf - dist/ | gzip --best > cchits-ng.frontend.prod.tar.gz
   - rm -rf dist
-  - scp -i ./travis-ci.key cchits-ng.frontend.prod.tar.gz travis@skym.fr:deploy/
-  - ./node_modules/@angular/cli/bin/ng build
+  - ./node_modules/@angular/cli/bin/ng build --configuration=staging
   - tar cf - dist/ | gzip --best > cchits-ng.frontend.staging.tar.gz
+  - scp -i ./travis-ci.key cchits-ng.frontend.staging.tar.gz cchits_staging@staging.cchits.net:deploy/
   - rm -rf dist
-  - scp -i ./travis-ci.key cchits-ng.frontend.staging.tar.gz travis@skym.fr:deploy/
+  - ./node_modules/@angular/cli/bin/ng build --configuration=test
+  - tar cf - dist/ | gzip --best > cchits-ng.frontend.test.tar.gz
+  - scp -i ./travis-ci.key cchits-ng.frontend.test.tar.gz travis@skym.fr:deploy/
